@@ -7,6 +7,7 @@ import { syncHistoryWithStore } from 'react-router-redux'
 import makeRoutes from './routes'
 import Root from './containers/Root'
 import configureStore from './redux/configureStore'
+import injectTapEventPlugin from 'react-tap-event-plugin'
 
 // Configure history for react-router
 const browserHistory = useRouterHistory(createBrowserHistory)({
@@ -34,3 +35,9 @@ ReactDOM.render(
   <Root history={history} routes={routes} store={store} />,
   document.getElementById('root')
 )
+
+// Needed for onTouchTap
+// Can go away when react 1.0 release
+// Check this repo:
+// https://github.com/zilverline/react-tap-event-plugin
+injectTapEventPlugin()
