@@ -21,3 +21,17 @@
     box-sizing: inherit;
   }
 }
+
+.main-image {
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+}
+
+.login-card {
+  max-width: 300px;
+  min-height: 500px;
+  float: right;
+  margin-right: 80px;
+  margin-top: 30px;
+}

@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react'
-import '../../styles/layout.scss'
 
 export class LoginLayout extends React.Component {
   static propTypes = {
@@ -8,7 +7,7 @@ export class LoginLayout extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className='container'>
         {this.props.children}
       </div>
     )
