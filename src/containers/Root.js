@@ -9,11 +9,11 @@ export default class Root extends React.Component {
     history: PropTypes.object.isRequired,
     routes: PropTypes.element.isRequired,
     store: PropTypes.object.isRequired
-  };
+  }
 
   static childContextTypes = {
     muiTheme: React.PropTypes.object
-  };
+  }
 
   constructor (props) {
     super(props)

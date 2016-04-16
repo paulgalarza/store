@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import Card from 'material-ui/lib/card/card'
 import CardActions from 'material-ui/lib/card/card-actions'
 import CardTitle from 'material-ui/lib/card/card-title'
@@ -13,6 +13,27 @@ const styles = {
 
 export class LoginForm extends React.Component {
 
+  static childContextTypes = {
+    username: PropTypes.string,
+    password: PropTypes.string
+  }
+
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      username: ''
+    }
+  }
+
+  login = (event) => {
+    console.log('login: ', this.state)
+  }
+
+  handleChange = (field) => (event) => {
+    this.setState({ [field]: event.target.value })
+  }
+
   render () {
     return (
       <Card
@@ -25,10 +46,12 @@ export class LoginForm extends React.Component {
         <CardText>
           <TextField
             floatingLabelText='Usuario'
+            onChange={this.handleChange('username')}
           />
           <TextField
             floatingLabelText='Contraseña'
             type='password'
+            onChange={this.handleChange('password')}
           />
         </CardText>
         <CardActions>
@@ -36,6 +59,7 @@ export class LoginForm extends React.Component {
             label='Iniciar sesión'
             primary
             style={styles.button}
+            onClick={this.login}
           />
         </CardActions>
       </Card>
