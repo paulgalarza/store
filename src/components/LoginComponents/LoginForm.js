@@ -4,7 +4,7 @@ import CardActions from 'material-ui/lib/card/card-actions'
 import CardTitle from 'material-ui/lib/card/card-title'
 import RaisedButton from 'material-ui/lib/raised-button'
 import CardText from 'material-ui/lib/card/card-text'
-import classes from '../../styles/layout.scss'
+import classes from 'styles/login.scss'
 import TextField from 'material-ui/lib/text-field'
 
 const styles = {
@@ -15,8 +15,13 @@ export class LoginForm extends React.Component {
 
   render () {
     return (
-      <Card className={classes['login-card']} rounded={false}>
-        <CardTitle title='Iniciar sesion' />
+      <Card
+        className={classes['login-card']}
+        rounded={false}
+      >
+        <CardTitle
+          title='Iniciar sesion'
+        />
         <CardText>
           <TextField
             floatingLabelText='Usuario'
@@ -27,7 +32,11 @@ export class LoginForm extends React.Component {
           />
         </CardText>
         <CardActions>
-          <RaisedButton label='Iniciar sesión' primary style={styles.button} />
+          <RaisedButton
+            label='Iniciar sesión'
+            primary
+            style={styles.button}
+          />
         </CardActions>
       </Card>
     )

@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react'
 import { Provider } from 'react-redux'
 import { Router } from 'react-router'
+import ThemeManager from 'material-ui/lib/styles/theme-manager'
+import MainTheme from 'styles/raw-themes/main'
 
 export default class Root extends React.Component {
   static propTypes = {
@@ -8,6 +10,30 @@ export default class Root extends React.Component {
     routes: PropTypes.element.isRequired,
     store: PropTypes.object.isRequired
   };
+
+  static childContextTypes = {
+    muiTheme: React.PropTypes.object
+  };
+
+  constructor (props) {
+    super(props)
+    this.state = { muiTheme: ThemeManager.getMuiTheme() }
+  }
+
+  getChildContext () {
+    return {
+      muiTheme: ThemeManager.getMuiTheme(MainTheme)
+    }
+  }
+
+  componentWillMount () {
+    let newMuiTheme = ThemeManager.getMuiTheme(MainTheme)
+    console.log('new theme: ', newMuiTheme)
+
+    this.setState({
+      muiTheme: newMuiTheme
+    })
+  }
 
   get content () {
     return (
